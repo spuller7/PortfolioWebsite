@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 import {Modal, Button, Row, Col, Form} from 'react-bootstrap';
 import {EmailModal} from './EmailModal';
-import {ResumeModal} from './ResumeModal';
-import {Header} from './Header';
+import $ from 'jquery';
+import {Header} from '../components/Header';
+import {Footer} from '../components/Footer';
+
+import 'sal.js/dist/sal.css';
 
 export class Main extends Component {
     constructor(props) {
         super(props);
-        this.state = {emailModalShow : false, resumeModalShow : false}
+        this.state = {emailModalShow : false}
     }
 
     viewEmailModal() {
@@ -17,13 +20,12 @@ export class Main extends Component {
     }
 
     render() {
-
         let emailModalClose =() => this.setState({emailModalShow:false});
-        let resumeModalClose =() => this.setState({resumeModalShow:false});
 
         return ( 
+<>
+            <Header viewEmailModal={this.viewEmailModal.bind(this)} isFixed={false} />
             <div className="App">
-                <Header viewEmailModal={this.viewEmailModal.bind(this)} />
 
                 <div className="MainBanner">
                     <div>
@@ -38,7 +40,7 @@ export class Main extends Component {
                             
                             <div className="row Button-container">
                                 <div className="Center">
-                                    <a data-sal="slide-right" data-sal-delay="1000" className="Button" onClick={()=> this.setState({resumeModalShow:true})}>Resume</a>
+                                    <a data-sal="slide-right" data-sal-delay="1000" className="Button" href='/cv.pdf' target='_blank'>Resume</a>
                                     <a data-sal="slide-left" data-sal-delay="1000" className="Button" onClick={()=> this.setState({emailModalShow:true})}>Contact</a>
                                 </div>
                             </div>
@@ -47,7 +49,6 @@ export class Main extends Component {
                 </div>
 
                 <EmailModal show={this.state.emailModalShow} onHide={emailModalClose} />
-                <ResumeModal show={this.state.resumeModalShow} onHide={resumeModalClose} />
 
                 <div className="Arrow"><a href="#About" className="Center"><img src="images/arrow.png"></img></a></div>
 
@@ -123,22 +124,22 @@ export class Main extends Component {
                         <ul id="Projects">
                             <li>
                             <a href="https://apps.apple.com/us/app/gnop/id1492956973" target="_blank">
-                                <img data-sal="slide-left" data-sal-delay="100" src="images/portfolio/gnop-showcase.png"></img>
+                                <img src="images/portfolio/gnop-showcase.png"></img>
                             </a>
                             </li>
                             <li>
                             <a href="https://globalgamejam.org/2019/games/nestegg" target="_blank">
-                                <img data-sal="slide-left" data-sal-delay="200" src="images/portfolio/nest-egg-showcase.png"></img>
+                                <img src="images/portfolio/nest-egg-showcase.png"></img>
                             </a>
                             </li>
                             <li>
                             <a href="https://ldjam.com/events/ludum-dare/41/tidal" target="_blank">
-                                <img data-sal="slide-left" data-sal-delay="300" src="images/portfolio/tidal-showcase.png"></img>
+                                <img src="images/portfolio/tidal-showcase.png"></img>
                             </a>
                             </li>
                             <li>
-                            <a>
-                                <img data-sal="slide-left" data-sal-delay="400" src="images/portfolio/coin-king-showcase.png"></img>
+                            <a href="https://github.com/spuller7/CoinKing-v4" target="_blank">
+                                <img src="images/portfolio/coin-king-showcase.png"></img>
                             </a>
                             </li>
                         </ul>
@@ -252,18 +253,28 @@ export class Main extends Component {
                     </div>
                 </section>
 
-                <footer>
-                    <div className="container">
-                    <div className="row">
-                        <div className="col-lg-6 col-xs-12">
-                            <div className="left-text-content">
-                                <p>Copyright &copy; 2020 Travis Spuller</p>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </footer>
-                </div>
+                <Footer />
+            </div>
+            </>
         );
     }
 }
+
+document.addEventListener('sal:in', ({ detail }) => {
+    if (detail.target.classList.contains('Graphic'))
+    {
+        detail.target.classList.add('play');
+    }
+});
+
+$(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+    var box = $('.MainBanner').height();
+    var header = $('header').height();
+  
+    if (scroll >= box - header) {
+      $("header.drag-change").addClass("Header--fixed");
+    } else {
+      $("header.drag-change").removeClass("Header--fixed");
+    }
+});

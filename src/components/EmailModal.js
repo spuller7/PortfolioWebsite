@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Modal, Button, Row, Col, Form} from 'react-bootstrap';
-import $ from 'jquery';
+
+import '../css/emailModal.css';
 
 export class EmailModal extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ export class EmailModal extends Component {
                         E-mail:<br />
                         <input type="text" name="mail" /><br />
                         Comment:<br />
-                        <input type="text" name="comment" size="50" />
+                        <input type="text" name="comment" className="textInput" />
                         <input type="submit" value="Send" />
                     </form>
                 </div>
@@ -41,15 +42,3 @@ export class EmailModal extends Component {
         );
     }
 }
-
-$(window).scroll(function() {
-    var scroll = $(window).scrollTop();
-    var box = $('.MainBanner').height();
-    var header = $('header').height();
-  
-    if (scroll >= box - header) {
-      $("header").addClass("Header--fixed");
-    } else {
-      $("header").removeClass("Header--fixed");
-    }
-});

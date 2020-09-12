@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import sal from 'sal.js';
 import $ from 'jquery';
-
-import 'sal.js/dist/sal.css';
+import sal from 'sal.js';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,13 +12,6 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-document.addEventListener('sal:in', ({ detail }) => {
-  if (detail.target.classList.contains('Graphic'))
-  {
-    detail.target.classList.add('play');
-  }
-});
 
 
 mobileNav();
