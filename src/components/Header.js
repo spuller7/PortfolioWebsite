@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../css/header.css';
+import {EmailModal} from './EmailModal';
  
 import { NavLink } from 'react-router-dom';
 
@@ -7,6 +8,12 @@ export class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {emailModalShow : false, show : true}
+    }
+
+    viewEmailModal() {
+        this.setState({
+            emailModalShow: true
+        })
     }
 
     render() {
@@ -24,7 +31,7 @@ export class Header extends Component {
                                 <ul className="Navigation">
                                     <li><a className={this.props.isFixed ? '' : 'active'} href="/">Home</a></li>
                                     <li><a className={this.props.isFixed ? 'active' : ''} href="/portfolio">Portfolio</a></li>
-                                    <li><a className="Button" onClick={()=> this.props.viewEmailModal()}>Contact</a></li>
+                                    <li><a className="Button" onClick={()=> this.viewEmailModal()}>Contact</a></li>
                                 </ul>
                                 <a className="menu-trigger">
                                     <span>Menu</span>
@@ -33,6 +40,7 @@ export class Header extends Component {
                         </div>
                     </div>
                 </div>
+                <EmailModal show={this.state.emailModalShow} onHide={emailModalClose} />
             </header>
         );
     }
