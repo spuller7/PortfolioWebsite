@@ -123,23 +123,23 @@ export class Main extends Component {
                         <div className="row">
                         <ul id="Projects">
                             <li>
+                            <a href="http://privacypal.io/" target="_blank">
+                                <img src="images/portfolio/privacypal-showcase.png"></img>
+                            </a>
+                            </li>
+                            <li>
                             <a href="https://apps.apple.com/us/app/gnop/id1492956973" target="_blank">
                                 <img src="images/portfolio/gnop-showcase.png"></img>
                             </a>
                             </li>
                             <li>
-                            <a href="https://globalgamejam.org/2019/games/nestegg" target="_blank">
-                                <img src="images/portfolio/nest-egg-showcase.png"></img>
+                            <a href="http://interpretmydata.com/" target="_blank">
+                                <img src="images/portfolio/imd-showcase.png"></img>
                             </a>
                             </li>
                             <li>
-                            <a href="https://ldjam.com/events/ludum-dare/41/tidal" target="_blank">
-                                <img src="images/portfolio/tidal-showcase.png"></img>
-                            </a>
-                            </li>
-                            <li>
-                            <a href="https://github.com/spuller7/CoinKing-v4" target="_blank">
-                                <img src="images/portfolio/coin-king-showcase.png"></img>
+                            <a href="https://dgaechter.itch.io/piano-river" target="_blank">
+                                <img src="images/portfolio/pianoriver-showcase.png"></img>
                             </a>
                             </li>
                         </ul>

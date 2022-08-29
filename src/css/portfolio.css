@@ -109,6 +109,18 @@
     transition: background 0.1s ease-in 0s;
 }
 
+.privacypal-image {
+    background: url(/../images/portfolio/privacypal.png) center top / cover;
+}
+
+.imd-image {
+    background: url(/../images/portfolio/imd.png) center top / cover;
+}
+
+.pianoriver-image {
+    background: url(/../images/portfolio/pianoriver.png) center top / cover;
+}
+
 .gnop-image {
     background: url(/../images/portfolio/gnop-showcase.png) center top / cover;
 }

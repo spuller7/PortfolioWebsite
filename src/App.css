@@ -50,6 +50,10 @@ ul, li {
   list-style: none;
 }
 
+.row {
+  max-width: 100%;
+}
+
 /*
 ---------------------
 Main Banner

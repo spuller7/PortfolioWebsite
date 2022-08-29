@@ -70,13 +70,6 @@ function onScroll(event){
   });
 }
 
-if($('.menu-trigger').length){
-  $(".menu-trigger").on('click', function() {	
-    $(this).toggleClass('active');
-    $('header .Navigation').slideToggle(200);
-  });
-}
-
 sal();
 
 // If you want your app to work offline and load faster, you can change

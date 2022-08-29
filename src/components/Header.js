@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../css/header.css';
 import {EmailModal} from './EmailModal';
+import $ from 'jquery'; 
  
 import { NavLink } from 'react-router-dom';
 
@@ -14,6 +15,12 @@ export class Header extends Component {
         this.setState({
             emailModalShow: true
         })
+    }
+
+    handleClick()
+    {
+        $(this).toggleClass('active');
+        $('header .Navigation').slideToggle(200);
     }
 
     render() {
@@ -30,10 +37,10 @@ export class Header extends Component {
                                 <a className="logo" href="http://www.travisspuller.com">Travis Spuller</a>
                                 <ul className="Navigation">
                                     <li><a className={this.props.isFixed ? '' : 'active'} href="/">Home</a></li>
-                                    <li><a className={this.props.isFixed ? 'active' : ''} href="/portfolio">Portfolio</a></li>
+                                    <li><NavLink to="/portfolio">Portfolio</NavLink></li>
                                     <li><a className="Button" onClick={()=> this.viewEmailModal()}>Contact</a></li>
                                 </ul>
-                                <a className="menu-trigger">
+                                <a className="menu-trigger" onClick={this.handleClick}>
                                     <span>Menu</span>
                                 </a>
                             </nav>
