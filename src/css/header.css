@@ -111,6 +111,12 @@ header {
     height: 2px;
     left: 0;
   }
+
+  header.Header--fixed .main-nav .menu-trigger span,
+  header.Header--fixed .main-nav .menu-trigger span:before,
+  header.Header--fixed .main-nav .menu-trigger span:after {
+    background-color: white;
+  }
   
   header .main-nav .menu-trigger span:before,
   header .main-nav .menu-trigger span:after {
@@ -154,9 +160,10 @@ header {
   }
   
   @media (max-width: 768px) {
-    header .main-nav .logo {
+    header:not(.Header--fixed) .main-nav .logo {
       color: #334AC0;
     }
+    
     header .main-nav .Navigation li a.active {
       color: #334AC0 !important;
     }

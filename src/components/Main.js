@@ -121,28 +121,28 @@ export class Main extends Component {
                         </div>
 
                         <div className="row">
-                        <ul id="Projects">
-                            <li>
-                            <a href="http://privacypal.io/" target="_blank">
-                                <img src="images/portfolio/privacypal-showcase.png"></img>
-                            </a>
-                            </li>
-                            <li>
-                            <a href="https://apps.apple.com/us/app/gnop/id1492956973" target="_blank">
-                                <img src="images/portfolio/gnop-showcase.png"></img>
-                            </a>
-                            </li>
-                            <li>
-                            <a href="http://interpretmydata.com/" target="_blank">
-                                <img src="images/portfolio/imd-showcase.png"></img>
-                            </a>
-                            </li>
-                            <li>
-                            <a href="https://dgaechter.itch.io/piano-river" target="_blank">
-                                <img src="images/portfolio/pianoriver-showcase.png"></img>
-                            </a>
-                            </li>
-                        </ul>
+                            <ul id="Projects">
+                                <li>
+                                    <a href="http://eatseeks.com/" target="_blank">
+                                        <img src="images/portfolio/eatseeks-showcase.png"></img>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://privacypal.io/" target="_blank">
+                                        <img src="images/portfolio/privacypal-showcase.png"></img>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://apps.apple.com/us/app/gnop/id1492956973" target="_blank">
+                                        <img src="images/portfolio/gnop-showcase.png"></img>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://dgaechter.itch.io/piano-river" target="_blank">
+                                        <img src="images/portfolio/pianoriver-showcase.png"></img>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     </div>
@@ -171,6 +171,21 @@ export class Main extends Component {
                             <img data-sal="slide-left" data-sal-delay="100" src="images/intvo-logo.png"></img>
                             </a>
                         </li>
+                        </ul>
+                    </div>
+
+                    <div className="row">
+                        <ul id="second-companies">
+                            <li>
+                                <a href="https://ford.com/" target="_blank">
+                                <img data-sal="slide-right" data-sal-delay="100" src="images/ford-logo.png"></img>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://quantumsignalai.com/" target="_blank">
+                                <img data-sal="slide-left" data-sal-delay="100" src="images/qsai-logo.png"></img>
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
