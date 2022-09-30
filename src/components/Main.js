@@ -128,7 +128,7 @@ export class Main extends Component {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://privacypal.io/" target="_blank">
+                                    <a href="http://privacypal.xyz/" target="_blank">
                                         <img src="images/portfolio/privacypal-showcase.png"></img>
                                     </a>
                                 </li>
