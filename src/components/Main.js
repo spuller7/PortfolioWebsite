@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Modal, Button, Row, Col, Form} from 'react-bootstrap';
 import {EmailModal} from './EmailModal';
+import {ChatWindow} from './ChatWindow';
 import $ from 'jquery';
 import {Header} from '../components/Header';
 import {Footer} from '../components/Footer';
@@ -43,14 +44,16 @@ export class Main extends Component {
                             <div className="row">
                                 <div className="Slogan">
                                     <div className="Slogan-headline">Let's Get Your Product</div>
-                                    <img data-sal="slide-down" data-sal-delay="500" src="images/Developed.svg"></img>
+                                    <div style={{width: '80%', margin: '0 auto'}}>
+                                    <img data-sal="slide-down" data-sal-delay="500" src="images/Developed.svg" style={{display: 'block', width: '100%'}}></img>
+
+                                    </div>
                                 </div>
                             </div>
                             
-                            <div className="row Button-container">
+                            <div className="row Chat-container" data-sal="fade" data-sal-delay="1000">
                                 <div className="Center">
-                                    <a data-sal="slide-right" data-sal-delay="1000" className="Button" href='/cv.pdf' target='_blank'>Resume</a>
-                                    <a data-sal="slide-left" data-sal-delay="1000" className="Button" onClick={()=> this.setState({emailModalShow:true})}>Contact</a>
+                                    <ChatWindow />
                                 </div>
                             </div>
                         </div>

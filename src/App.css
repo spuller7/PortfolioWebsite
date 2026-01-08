@@ -275,6 +275,14 @@ Main Banner
   margin:auto;
 }
 
+.Chat-container {
+  padding-top: 50px;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .Button-container a {
   margin: 4vw 6vw !important;
   font-size: larger;
