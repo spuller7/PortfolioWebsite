@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Portfolio from './components/Portfolio';
 import Error from './components/Error';
 import {EmailModal} from './components/EmailModal';
+import {MusicPlayer} from './components/MusicPlayer';
  
 
 class App extends Component {
@@ -39,6 +40,7 @@ class App extends Component {
         </div> 
       </BrowserRouter>
 
+      <MusicPlayer />
       <EmailModal show={this.state.emailModalShow} onHide={emailModalClose} />
       </>
     );

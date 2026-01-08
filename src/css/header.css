@@ -18,7 +18,7 @@ header {
   
   header.Header--fixed {
     position: fixed;
-    background-color: #334AC0;
+    background-color: black;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.15)!important;
   }
   
@@ -75,7 +75,7 @@ header {
     width: 125px;
     text-align: center;
     padding: 10px 16px;
-    color: #334AC0 !important;
+    color: #3d3d3d  !important;
     background-color: white;
     border-radius: 150px;
     margin: auto;
@@ -104,7 +104,7 @@ header {
     -o-transition: all 0.4s;
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
-    background-color: #334AC0;
+    background-color: black;
     display: block;
     position: absolute;
     width: 30px;
@@ -124,7 +124,7 @@ header {
     -o-transition: all 0.4s;
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
-    background-color: #334AC0;
+    background-color: black;
     display: block;
     position: absolute;
     width: 30px;
@@ -161,11 +161,11 @@ header {
   
   @media (max-width: 768px) {
     header:not(.Header--fixed) .main-nav .logo {
-      color: #334AC0;
+      color: #2b2b2b;
     }
     
     header .main-nav .Navigation li a.active {
-      color: #334AC0 !important;
+      color: #2b2b2b !important;
     }
     header {
       background-color: #f7f7f7 !important;

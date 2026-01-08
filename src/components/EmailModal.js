@@ -23,15 +23,41 @@ export class EmailModal extends Component {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <div>
+                <div className="EmailModal-form">
                     <form action="mailto:travis.spuller@gmail.com" method="post" enctype="text/plain">
-                        Name:<br />
-                        <input type="text" name="name" /><br />
-                        E-mail:<br />
-                        <input type="text" name="mail" /><br />
-                        Comment:<br />
-                        <input type="text" name="comment" className="textInput" />
-                        <input type="submit" value="Send" />
+                        <div className="form-group">
+                            <label htmlFor="name">Name</label>
+                            <input 
+                                type="text" 
+                                id="name"
+                                name="name" 
+                                className="form-input"
+                                placeholder="Your name"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="mail">Email</label>
+                            <input 
+                                type="email" 
+                                id="mail"
+                                name="mail" 
+                                className="form-input"
+                                placeholder="your.email@example.com"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="comment">Message</label>
+                            <textarea 
+                                id="comment"
+                                name="comment" 
+                                className="form-input form-textarea"
+                                rows="5"
+                                placeholder="Your message..."
+                            ></textarea>
+                        </div>
+                        <div className="form-actions">
+                            <Button type="submit" className="submit-button">Send</Button>
+                        </div>
                     </form>
                 </div>
             </Modal.Body>

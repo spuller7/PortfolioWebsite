@@ -1,7 +1,6 @@
 footer {
     padding: 80px 0px;
-    background: rgb(51,155,158);
-    background: linear-gradient(145deg, #2E3243 0%, #2F77D6 100%);
+    background: black;
   }
   
   footer .left-text-content p {

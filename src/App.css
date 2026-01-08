@@ -62,7 +62,7 @@ header {
 
 header.Header--fixed {
   position: fixed;
-  background: linear-gradient(145deg, #2E3243 0%, #2F77D6 100%);
+  background: black;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.15)!important;
 }
 
@@ -108,7 +108,7 @@ header .main-nav .Navigation li a {
 }
 
 header .main-nav .Navigation li a.active {
-  border-bottom: solid white 2px;
+  border-bottom: solid #f5f5f5 2px;
 }
 
 header .main-nav .Navigation li a.Button,
@@ -119,8 +119,8 @@ a.Button {
   width: 125px;
   text-align: center;
   padding: 10px 16px;
-  color: #334AC0 !important;
-  background-color: white;
+  color: #3d3d3d !important;
+  background-color: #f5f5f5;
   border-radius: 150px;
   margin: auto;
   margin-left: 5px;
@@ -148,7 +148,7 @@ header .main-nav .menu-trigger span:after {
   -o-transition: all 0.4s;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  background-color: #334AC0;
+  background-color: black;
   display: block;
   position: absolute;
   width: 30px;
@@ -162,7 +162,7 @@ header .main-nav .menu-trigger span:after {
   -o-transition: all 0.4s;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  background-color: #334AC0;
+  background-color: black;
   display: block;
   position: absolute;
   width: 30px;
@@ -199,10 +199,10 @@ header .main-nav .menu-trigger span:after {
 
 @media (max-width: 768px) {
   header .main-nav .logo {
-    color: #334AC0;
+    color: #2b2b2b;
   }
   header .main-nav .Navigation li a.active {
-    color: #334AC0 !important;
+    color: #2b2b2b !important;
   }
   header {
     background-color: #f7f7f7 !important;
@@ -228,7 +228,7 @@ header .main-nav .menu-trigger span:after {
     margin-left: 0px;
   }
   header .main-nav .Navigation li:first-child {
-    border-top: 1px solid #eee;
+    border-top: 1px solid #f5f5f5;
   }
   header .Navigation {
     margin-top: 80px !important;
@@ -291,26 +291,51 @@ Main Banner
 
 .Button-container > div a:first-child {
   background-color: transparent;
-  border: white solid;
-  color: white !important;
+  border: #f5f5f5 solid;
+  color: #f5f5f5 !important;
 }
 
 .MainBanner {
   height: 95vh;
-  background: linear-gradient(145deg, #2E3243 0%, #2F77D6 100%);
+  background: black;
+  position: relative;
+  overflow: hidden;
 }
 
-.MainBanner > div {
+.MainBanner .VideoBackground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.MainBanner .VideoBackground iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw; /* 16:9 aspect ratio */
+  min-height: 100vh;
+  min-width: 177.77vh; /* 16:9 aspect ratio */
+  transform: translate(-50%, -50%);
+}
+
+.MainBanner > div:not(.VideoBackground) {
   height: 100%;
-  background-image: url('/images/br.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  background-attachment: fixed;
+  position: relative;
+  z-index: 1;
 }
 
 .MainBanner .container {
   height: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .Arrow {
@@ -324,13 +349,13 @@ Main Banner
   display: flex;
   text-align: center;
   line-height: 60px;
-  color: #fff;
+  color: #f5f5f5;
 }
 
 .Slogan {
   margin: 5vw;
-  margin-top: 30vh;
-  color: white;
+  margin-top: 20vh;
+  color: #f5f5f5;
   font-size: 6vmin;
   width: 100%;
 }
@@ -351,7 +376,7 @@ Main Banner
 }
 
 .Main-button {
-  background-color: white;
+  background-color: #f5f5f5;
   border: solid 2px #334AC0;
   font-size: 3vh;
 }
@@ -398,7 +423,7 @@ Main Banner
 }
 
 .Section .Graphic-description h1 {
-  color: #334AC0;
+  color: #2b2b2b;
 }
 
 .Section .Graphic-description ul li {
@@ -469,7 +494,7 @@ Main Banner
 }
 
 #Portfolio > div {
-  background: linear-gradient(145deg, #2E3243 0%, #2F77D6 100%);
+  background: black;
   color: white;
 }
 
@@ -508,7 +533,7 @@ Main Banner
   display: flex;
 }
 #Companies {
-  margin: 5% 5%;
+  margin: 0 5% 5% 5%;
 }
 #second-companies {
   margin: auto 10%;
@@ -523,7 +548,7 @@ Main Banner
 #second-companies li {
   float: left;
   margin: auto 5%;
-  width: 50%;
+  width: 33%;
   max-height: 15vh;
 }
 
@@ -555,7 +580,7 @@ Main Banner
 footer {
   padding: 80px 0px;
   background: rgb(51,155,158);
-  background: linear-gradient(145deg, #2E3243 0%, #2F77D6 100%);
+  background: black;
 }
 
 footer .left-text-content p {
@@ -659,5 +684,113 @@ footer .right-text-content ul li a:hover {
   }
   #Portfolio h1 {
     padding-bottom: 5vh;
+  }
+}
+
+/* Music Player Styles */
+.MusicPlayer {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 10000;
+  background: rgba(46, 50, 67, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+}
+
+.MusicPlayer:hover {
+  background: rgba(46, 50, 67, 0.98);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+.MusicPlayer-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.MusicPlayer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.MusicPlayer-artist {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.MusicPlayer-song {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.MusicPlayer-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  pointer-events: auto;
+  z-index: 1001;
+  position: relative;
+}
+
+.MusicPlayer-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.MusicPlayer-button:active {
+  transform: scale(0.95);
+}
+
+.MusicPlayer-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .MusicPlayer {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 15px;
+    min-width: 180px;
+  }
+
+  .MusicPlayer-artist {
+    font-size: 11px;
+  }
+
+  .MusicPlayer-song {
+    font-size: 13px;
+  }
+
+  .MusicPlayer-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .MusicPlayer-button svg {
+    width: 18px;
+    height: 18px;
   }
 }

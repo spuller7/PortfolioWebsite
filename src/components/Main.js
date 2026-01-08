@@ -28,6 +28,15 @@ export class Main extends Component {
             <div className="App">
 
                 <div className="MainBanner">
+                    <div className="VideoBackground">
+                        <iframe
+                            src="https://www.youtube.com/embed/22vkZ8-CEkw?autoplay=1&loop=1&playlist=22vkZ8-CEkw&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0"
+                            frameBorder="0"
+                            allow="autoplay; encrypted-media"
+                            allowFullScreen
+                            title="Background Video"
+                        ></iframe>
+                    </div>
                     <div>
                     <div className="container">
                         
@@ -157,8 +166,8 @@ export class Main extends Component {
                     <div className="row">
                         <ul id="Companies">
                         <li>
-                            <a href="https://aysling.com/" target="_blank">
-                            <img data-sal="slide-right" data-sal-delay="100" src="images/aysling-logo.png"></img>
+                            <a href="https://ticketsocket.com/" target="_blank">
+                            <img data-sal="slide-right" data-sal-delay="100" src="images/TicketSocket_RGB_422x292.png"></img>
                             </a>
                         </li>
                         <li>
@@ -184,6 +193,11 @@ export class Main extends Component {
                             <li>
                                 <a href="https://quantumsignalai.com/" target="_blank">
                                 <img data-sal="slide-left" data-sal-delay="100" src="images/qsai-logo.png"></img>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://aysling.com/" target="_blank">
+                                <img data-sal="slide-up" data-sal-delay="100" src="images/aysling-logo.png"></img>
                                 </a>
                             </li>
                         </ul>
