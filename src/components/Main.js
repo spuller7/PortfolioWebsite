@@ -86,10 +86,13 @@ export class Main extends Component {
               <div className="section-intro">
                 <h2>About</h2>
                 <p>
-                  Computer Science graduate from the University of Michigan with
-                  industry experience in data processing, database architecture,
-                  and user-experience design. I care about consistency and
-                  precision from concept through launch.
+                  Full-stack engineer specializing in agentic AI systems and
+                  automation pipelines, with a strong foundation architecting
+                  APIs and scaling infrastructure for reliability. Experienced
+                  building customer-facing platforms with an emphasis on
+                  security, performance, and operational continuity. Comfortable
+                  partnering across engineering teams to onboard products and
+                  ship durable, production-grade systems.
                 </p>
               </div>
               <div className="about-columns">
