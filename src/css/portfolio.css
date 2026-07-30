@@ -1,158 +1,139 @@
-.portfolio-container {
-    
-    max-width: 1000px;
-    margin: 0px auto;
-    margin-top: 124px;
-}
-
 .project-container {
-    display: grid;
-    gap: 48px;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  display: grid;
+  gap: 2.5rem 1.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 .project {
-    margin-bottom: 24px;
-    margin-left: 15px;
-    margin-right: 15px;
+  animation: projectIn 0.7s ease both;
+}
+
+.project:nth-child(1) { animation-delay: 0.02s; }
+.project:nth-child(2) { animation-delay: 0.06s; }
+.project:nth-child(3) { animation-delay: 0.1s; }
+.project:nth-child(4) { animation-delay: 0.14s; }
+.project:nth-child(5) { animation-delay: 0.18s; }
+.project:nth-child(6) { animation-delay: 0.22s; }
+
+@keyframes projectIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .project-image-link {
-    margin-bottom: 16px;
-    display: block;
+  display: block;
+  margin-bottom: 1rem;
 }
 
 .project-image {
-    width: 100%;
-    padding-top: 66.66%;
-    position: relative;
+  width: 100%;
+  padding-top: 66.66%;
+  position: relative;
 }
 
 .project-image > div {
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 15px 12px -8px;
-    border: 1px solid rgb(247, 248, 248);
-    cursor: pointer;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background-color: #dfe8e4;
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    border-radius: 8px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
+.project:hover .project-image > div {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
 }
 
 .project-title-container {
-    display: flex;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .project-title {
-    font-weight: 500;
-    font-size: 16px;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
 }
 
-.project-tags {
-    display: flex;
+.project-links {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0.35rem;
 }
 
-.project-tags > a {
-    display: inline;
-    color: inherit;
-    box-shadow: none;
-    text-decoration: none;
-    cursor: pointer;
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--accent);
+  color: #fff;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.project-tags > a > span {
-    border-radius: 4px;
-    font-size: 11px;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    padding: 5px 7px;
-    cursor: pointer;
-    margin: 0px 4px;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-    background: rgb(136, 195, 18);
-    color: white;
+.project-links a:hover {
+  background: var(--accent-deep);
+  transform: translateY(-1px);
 }
 
-.project-tabs
-{
-    margin-bottom: 16px;
-    color: rgb(85, 85, 85);
-    font-size: 11px;
-    display: flex;
+.project-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
 }
 
-.project-tabs > :not(:last-child) {
-    margin-right: 8px;
+.project-tabs span {
+  padding: 0.28rem 0.55rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  background: rgba(20, 34, 31, 0.06);
+  border-radius: 4px;
 }
 
-.project-tabs > span {
-    padding: 4px 8px;
-    font-size: 10px;
-    font-weight: 500;
-    border-radius: 4px;
-    background-color: rgb(236, 239, 245);
-    text-transform: uppercase;
-    color: rgb(62, 69, 81);
-    display: block;
-    transition: background 0.1s ease-in 0s;
+.project-description {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
 }
 
-.privacypal-image {
-    background: url(/../images/portfolio/privacypal.png) center top / cover;
-}
-
-.eatseeks-image {
-    background: url(/../images/portfolio/eatseeks.png) center top / cover;
-}
-
-.imd-image {
-    background: url(/../images/portfolio/imd.png) center top / cover;
-}
-
-.pianoriver-image {
-    background: url(/../images/portfolio/pianoriver.png) center top / cover;
-}
-
-.gnop-image {
-    background: url(/../images/portfolio/gnop-showcase.png) center top / cover;
-}
-
-.coinking-image {
-    background: url(/../images/portfolio/coin-king-showcase.png) center top / cover;
-}
-
-.amato-image {
-    background: url(/../images/portfolio/amato-mockups.png) center top / cover;
-}
-
-.intvo-image {
-    background: url(/../images/portfolio/intvo-mockups.png) center top / cover;
-}
-
-.tidal-image {
-    background: url(/../images/portfolio/tidal-showcase.png) center top / cover;
-}
-
-.nest-egg-image {
-    background: url(/../images/portfolio/nest-egg-showcase.png) center top / cover;
-}
-
-.nightmare-mine-image {
-    background: url(/../images/portfolio/nightmare-mine-showcase.png) center top / cover;
-}
-
+/* Keep class names for any residual CSS hooks */
+.privacypal-image,
+.eatseeks-image,
+.imd-image,
+.pianoriver-image,
+.gnop-image,
+.coinking-image,
+.amato-image,
+.intvo-image,
+.tidal-image,
+.nest-egg-image,
+.nightmare-mine-image,
 .ir-image {
-    background: url(/../images/portfolio/ir-showcase.png) center top / cover;
+  background-position: center top;
+  background-size: cover;
 }

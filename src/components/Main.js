@@ -1,312 +1,171 @@
-import React, {Component} from 'react';
-import {Modal, Button, Row, Col, Form} from 'react-bootstrap';
-import {EmailModal} from './EmailModal';
-import {ChatWindow} from './ChatWindow';
-import $ from 'jquery';
-import {Header} from '../components/Header';
-import {Footer} from '../components/Footer';
+import React, { Component } from 'react';
+import { EmailModal } from './EmailModal';
+import { Header } from './Header';
+import { Footer } from './Footer';
+import FeaturedGrid from './FeaturedGrid';
+import ProjectGrid from './ProjectGrid';
 
-import 'sal.js/dist/sal.css';
+const companies = [
+  { name: 'TicketSocket', href: 'https://ticketsocket.com/', src: 'images/TicketSocket_RGB_422x292.png' },
+  { name: 'Ann Arbor SPARK', href: 'https://annarborusa.org/', src: 'images/spark-logo.png' },
+  { name: 'Intvo', href: 'https://intvo.com/', src: 'images/intvo-logo.png' },
+  { name: 'Ford', href: 'https://ford.com/', src: 'images/ford-logo.png' },
+  { name: 'Quantum Signal AI', href: 'https://quantumsignalai.com/', src: 'images/qsai-logo.png' },
+  { name: 'Aysling', href: 'https://aysling.com/', src: 'images/aysling-logo.png' },
+];
+
+const skills = [
+  'xd', 'photoshop', 'illustrator', 'php', 'graphql', 'c', 'cpp', 'csharp',
+  'css', 'ethereum', 'firebase', 'git', 'sass', 'html', 'ionic', 'java',
+  'javascript', 'json', 'python', 'react',
+];
 
 export class Main extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {emailModalShow : false}
-    }
+  constructor(props) {
+    super(props);
+    this.state = { emailModalShow: false };
+  }
 
-    viewEmailModal() {
-        this.setState({
-            emailModalShow: true
-        })
-    }
+  viewEmailModal() {
+    this.setState({ emailModalShow: true });
+  }
 
-    render() {
-        let emailModalClose =() => this.setState({emailModalShow:false});
+  render() {
+    const emailModalClose = () => this.setState({ emailModalShow: false });
 
-        return ( 
-<>
-            <Header viewEmailModal={this.viewEmailModal.bind(this)} isFixed={false} />
-            <div className="App">
-
-                <div className="MainBanner">
-                    <div className="VideoBackground">
-                        <iframe
-                            src="https://www.youtube.com/embed/22vkZ8-CEkw?autoplay=1&loop=1&playlist=22vkZ8-CEkw&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0"
-                            frameBorder="0"
-                            allow="autoplay; encrypted-media"
-                            allowFullScreen
-                            title="Background Video"
-                        ></iframe>
-                    </div>
-                    <div>
-                    <div className="container">
-                        
-                            <div className="row">
-                                <div className="Slogan">
-                                    <div className="Slogan-headline">Let's Get Your Product</div>
-                                    <div style={{width: '80%', margin: '0 auto'}}>
-                                    <img data-sal="slide-down" data-sal-delay="500" src="images/Developed.svg" style={{display: 'block', width: '100%'}}></img>
-
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div className="row Chat-container" data-sal="fade" data-sal-delay="1000">
-                                <div className="Center">
-                                    <ChatWindow />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <EmailModal show={this.state.emailModalShow} onHide={emailModalClose} />
-
-                <div className="Arrow"><a href="#About" className="Center"><img src="images/arrow.png"></img></a></div>
-
-                <section className="Section" id="About">
-                    <div className="container">
-                    <div className="row">
-                        
-                        <div className="col-6 Mobile-only Align-center">
-                            <img className="Phone-static" src="images/phone-static.svg"></img>
-                        </div>
-
-                        <div className="col-6 Graphic-description">
-                        <div className="Align-left">
-                            <h1 data-sal="slide-right">Mobile App Development</h1>
-                            <ul>
-                            <li data-sal="slide-right" data-sal-delay="100">
-                                Hybrid-App Development and Publishing
-                            </li>
-                            <li data-sal="slide-right" data-sal-delay="200">
-                                Hyper-Casual Game Development
-                            </li>
-                            <li data-sal="slide-right" data-sal-delay="300">
-                                Progressive Web Apps
-                            </li>
-                            </ul>
-                        </div>
-                        </div>
-
-                        <div className="col-6 Desktop-only">
-                            <div className="shapeshifter Phone Graphic" data-sal="slide-left"></div>
-                        </div>
-
-                    </div>
-
-                    <div className="row">
-                        
-                        <div className="col-6 Desktop-only">
-                            <div className="shapeshifter Computer Graphic" data-sal="slide-right"></div>
-                        </div>
-
-                        <div className="col-6 Mobile-only Align-center">
-                            <img className="Computer-static" src="images/computer-static.svg"></img>
-                        </div>
-
-                        <div className="col-6 Graphic-description">
-                            <div className="Align-right">
-                                <h1 data-sal="slide-left">Web Development</h1>
-                                <ul>
-                                <li data-sal="slide-left" data-sal-delay="100">
-                                    Front & Back End Development
-                                </li>
-                                <li data-sal="slide-left" data-sal-delay="200">
-                                    API and Database Architecture
-                                </li>
-                                <li data-sal="slide-left" data-sal-delay="300">
-                                    User Experience Design
-                                </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </section>
-
-                <section className="Section" id="Portfolio">
-                    <div>
-                    <div className="container">
-                        <div className="row">
-                        <h1>Latest Work</h1>
-                        </div>
-
-                        <div className="row">
-                            <ul id="Projects">
-                                <li>
-                                    <a href="http://eatseeks.com/" target="_blank">
-                                        <img src="images/portfolio/eatseeks-showcase.png"></img>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://privacypal.xyz/" target="_blank">
-                                        <img src="images/portfolio/privacypal-showcase.png"></img>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://apps.apple.com/us/app/gnop/id1492956973" target="_blank">
-                                        <img src="images/portfolio/gnop-showcase.png"></img>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://dgaechter.itch.io/piano-river" target="_blank">
-                                        <img src="images/portfolio/pianoriver-showcase.png"></img>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    </div>
-                </section>
-
-                <section className="Section" id="Toolkit">
-                    <div className="container">
-                    <div className="row">
-                        <img data-sal="slide-down" data-sal-delay="100" className="UofM-logo" src="images/University-of-Michigan-Logo.png"></img>
-                    </div>
-
-                    <div className="row">
-                        <ul id="Companies">
-                        <li>
-                            <a href="https://ticketsocket.com/" target="_blank">
-                            <img data-sal="slide-right" data-sal-delay="100" src="images/TicketSocket_RGB_422x292.png"></img>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://annarborusa.org/" target="_blank">
-                            <img data-sal="slide-up" data-sal-delay="100" src="images/spark-logo.png"></img>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://intvo.com/" target="_blank">
-                            <img data-sal="slide-left" data-sal-delay="100" src="images/intvo-logo.png"></img>
-                            </a>
-                        </li>
-                        </ul>
-                    </div>
-
-                    <div className="row">
-                        <ul id="second-companies">
-                            <li>
-                                <a href="https://ford.com/" target="_blank">
-                                <img data-sal="slide-right" data-sal-delay="100" src="images/ford-logo.png"></img>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://quantumsignalai.com/" target="_blank">
-                                <img data-sal="slide-left" data-sal-delay="100" src="images/qsai-logo.png"></img>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://aysling.com/" target="_blank">
-                                <img data-sal="slide-up" data-sal-delay="100" src="images/aysling-logo.png"></img>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div className="row">
-                        <ul className="Toolkit">
-                        <li>
-                            <img src="/images/toolkit/xd.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/photoshop.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/illustrator.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/php.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/graphql.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/c.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/cpp.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/csharp.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/css.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/ethereum.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/firebase.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/git.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/sass.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/html.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/ionic.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/java.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/javascript.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/json.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/python.png"></img>
-                        </li>
-                        <li>
-                            <img src="/images/toolkit/react.png"></img>
-                        </li>
-                        </ul>
-                    </div>
-
-                    <div className="row">
-                        <div className="Center Align-center">
-                        <h1>Ready to get started?</h1>
-                        </div>
-                    </div>
-
-                    <div className="row Final-button">
-                        <div className="Center">
-                        <a className="Button" onClick={()=> this.setState({emailModalShow:true})}>Contact</a>
-                        </div>
-                    </div>
-                    </div>
-                </section>
-
-                <Footer />
+    return (
+      <>
+        <Header />
+        <main className="App" id="top">
+          <section className="hero">
+            <div className="hero-atmosphere" aria-hidden="true" />
+            <div className="container hero-content">
+              <p className="hero-brand">Travis Spuller</p>
+              <h1 className="hero-headline">Full-stack engineer building products that ship.</h1>
+              <p className="hero-lede">
+                Mobile apps, web platforms, and game experiences — with a focus on
+                clean architecture, precise UX, and modern JavaScript.
+              </p>
+              <div className="hero-actions">
+                <a className="Button Button--primary" href="#featured">
+                  View work
+                </a>
+                <button
+                  type="button"
+                  className="Button Button--ghost"
+                  onClick={() => this.viewEmailModal()}
+                >
+                  Get in touch
+                </button>
+              </div>
             </div>
-            </>
-        );
-    }
+          </section>
+
+          <section className="Section Section--featured" id="featured">
+            <div className="container">
+              <div className="section-intro">
+                <h2>Recent projects</h2>
+                <p>Current work across ticketing, marketing, and AI commerce.</p>
+              </div>
+              <FeaturedGrid />
+            </div>
+          </section>
+
+          <section className="Section Section--work" id="work">
+            <div className="container">
+              <div className="section-intro">
+                <h2>Selected work</h2>
+                <p>Apps, games, and design systems across web and mobile.</p>
+              </div>
+              <ProjectGrid />
+            </div>
+          </section>
+
+          <section className="Section Section--about" id="about">
+            <div className="container about-grid">
+              <div className="section-intro">
+                <h2>About</h2>
+                <p>
+                  Computer Science graduate from the University of Michigan with
+                  industry experience in data processing, database architecture,
+                  and user-experience design. I care about consistency and
+                  precision from concept through launch.
+                </p>
+              </div>
+              <div className="about-columns">
+                <div className="about-block">
+                  <h3>Mobile</h3>
+                  <ul>
+                    <li>Hybrid app development and publishing</li>
+                    <li>Hyper-casual game development</li>
+                    <li>Progressive web apps</li>
+                  </ul>
+                </div>
+                <div className="about-block">
+                  <h3>Web</h3>
+                  <ul>
+                    <li>Front-end and back-end development</li>
+                    <li>API and database architecture</li>
+                    <li>User experience design</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="Section Section--experience" id="experience">
+            <div className="container">
+              <div className="section-intro">
+                <h2>Experience</h2>
+                <p>Teams and tools I’ve worked with along the way.</p>
+              </div>
+
+              <div className="experience-logo">
+                <img
+                  className="UofM-logo"
+                  src="images/University-of-Michigan-Logo.png"
+                  alt="University of Michigan"
+                />
+              </div>
+
+              <ul className="company-grid">
+                {companies.map((company) => (
+                  <li key={company.name}>
+                    <a href={company.href} target="_blank" rel="noopener noreferrer">
+                      <img src={company.src} alt={company.name} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              <ul className="Toolkit">
+                {skills.map((skill) => (
+                  <li key={skill}>
+                    <img src={`images/toolkit/${skill}.png`} alt={skill} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          <section className="Section Section--contact" id="contact">
+            <div className="container contact-panel">
+              <h2>Ready to get started?</h2>
+              <p>Let’s talk about your next product, app, or prototype.</p>
+              <button
+                type="button"
+                className="Button Button--primary"
+                onClick={() => this.viewEmailModal()}
+              >
+                Contact
+              </button>
+            </div>
+          </section>
+
+          <EmailModal show={this.state.emailModalShow} onHide={emailModalClose} />
+          <Footer />
+        </main>
+      </>
+    );
+  }
 }
-
-document.addEventListener('sal:in', ({ detail }) => {
-    if (detail.target.classList.contains('Graphic'))
-    {
-        detail.target.classList.add('play');
-    }
-});
-
-$(window).scroll(function() {
-    var scroll = $(window).scrollTop();
-    var box = $('.MainBanner').height();
-    var header = $('header').height();
-  
-    if (scroll >= box - header) {
-      $("header.drag-change").addClass("Header--fixed");
-    } else {
-      $("header.drag-change").removeClass("Header--fixed");
-    }
-});
