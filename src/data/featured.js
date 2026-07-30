@@ -4,6 +4,7 @@ const featuredProjects = [
     title: 'Open Gate Tickets',
     description: 'General purpose ticketing service',
     mark: '01',
+    url: 'https://opengatetickets.com',
   },
   {
     id: '313-tix',
