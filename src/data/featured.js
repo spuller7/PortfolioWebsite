@@ -19,10 +19,11 @@ const featuredProjects = [
     mark: '03',
   },
   {
-    id: 'tix-tracer',
-    title: 'Tix Tracer',
+    id: 'tixeye',
+    title: 'TixEye',
     description: 'AI ticketing aggregator and agentic commerce platform',
     mark: '04',
+    url: 'https://www.tixeye.com',
   },
 ];
 
