@@ -5,8 +5,8 @@ const projects = [
     description: 'Geolocation restaurant & bar recommender',
     imageClass: 'eatseeks-image',
     image: 'images/portfolio/eatseeks.png',
-    preview: 'http://eatseeks.com/',
-    repo: { label: 'Github', url: 'https://github.com/spuller7/vacay' },
+    preview: null,
+    repo: { label: 'GitHub', url: 'https://github.com/spuller7/vacay' },
     tags: ['PHP', 'MySQL', 'MVC'],
   },
   {
@@ -25,8 +25,8 @@ const projects = [
     description: 'Hyper-casual mobile game',
     imageClass: 'gnop-image',
     image: 'images/portfolio/gnop-showcase.png',
-    preview: 'https://apps.apple.com/us/app/gnop/id1492956973',
-    repo: { label: 'Github', url: 'https://github.com/spuller7/Gnop' },
+    preview: null,
+    repo: { label: 'GitHub', url: 'https://github.com/spuller7/Gnop' },
     tags: ['Unity', 'C#', 'Android', 'iOS'],
   },
   {
@@ -36,7 +36,7 @@ const projects = [
     imageClass: 'nest-egg-image',
     image: 'images/portfolio/nest-egg-showcase.png',
     preview: 'https://globalgamejam.org/2019/games/nestegg',
-    repo: { label: 'Github', url: 'https://github.com/spuller7/Gnop' },
+    repo: null,
     tags: ['Unity', 'C#', 'Particle System'],
   },
   {
@@ -46,7 +46,7 @@ const projects = [
     imageClass: 'tidal-image',
     image: 'images/portfolio/tidal-showcase.png',
     preview: 'https://ldjam.com/events/ludum-dare/41/tidal',
-    repo: { label: 'Github', url: 'https://github.com/spuller7/Tidal' },
+    repo: { label: 'GitHub', url: 'https://github.com/spuller7/Tidal' },
     tags: ['Unity', 'C#'],
   },
   {
@@ -56,7 +56,7 @@ const projects = [
     imageClass: 'coinking-image',
     image: 'images/portfolio/coin-king-showcase.png',
     preview: null,
-    repo: { label: 'Github', url: 'https://github.com/spuller7/CoinKing-v4' },
+    repo: { label: 'GitHub', url: 'https://github.com/spuller7/CoinKing-v4' },
     tags: ['Ionic', 'AngularJS', 'REST API', 'PWA', 'FinTech'],
   },
   {
@@ -75,8 +75,8 @@ const projects = [
     description: 'Interventional Radiology exam question practice set',
     imageClass: 'ir-image',
     image: 'images/portfolio/ir-showcase.png',
-    preview: 'https://itunes.apple.com/us/app/ir-core-review/id1257609949?ls=1&mt=8',
-    repo: { label: 'Github', url: 'https://github.com/spuller7/IR-Core-Review' },
+    preview: null,
+    repo: { label: 'GitHub', url: 'https://github.com/spuller7/IR-Core-Review' },
     tags: ['Unity', 'C#'],
   },
   {
@@ -86,7 +86,7 @@ const projects = [
     imageClass: 'nightmare-mine-image',
     image: 'images/portfolio/nightmare-mine-showcase.png',
     preview: 'https://ldjam.com/events/ludum-dare/39/$33904',
-    repo: { label: 'Github', url: 'https://github.com/spuller7/Nightmare-Mine' },
+    repo: { label: 'GitHub', url: 'https://github.com/spuller7/Nightmare-Mine' },
     tags: ['Unity', 'C#'],
   },
 ];

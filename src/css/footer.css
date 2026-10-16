@@ -1,36 +1,24 @@
 .site-footer {
-  padding: 2.5rem 0;
-  background: var(--accent-deep);
-  color: rgba(244, 255, 252, 0.88);
-}
-
-.footer-inner {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  max-width: var(--max);
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-muted);
+  font-size: 0.95rem;
 }
 
 .site-footer p {
   margin: 0;
-  font-size: 0.95rem;
 }
 
 .site-footer a {
-  color: rgba(244, 255, 252, 0.88);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.2s ease;
+  color: var(--ink-muted);
+  text-underline-offset: 0.18em;
 }
 
 .site-footer a:hover {
-  color: #fff;
-}
-
-@media (max-width: 768px) {
-  .footer-inner {
-    justify-content: center;
-    text-align: center;
-  }
+  color: var(--accent-deep);
 }

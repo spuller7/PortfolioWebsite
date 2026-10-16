@@ -1,0 +1,258 @@
+.agent-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.agent-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 1.25rem 1.2rem 1.15rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: inherit;
+  text-decoration: none;
+}
+
+.agent-card:hover,
+.agent-card:focus-visible {
+  border-color: var(--accent);
+  color: inherit;
+  text-decoration: none;
+}
+
+.agent-card h3 {
+  margin: 0 0 0.45rem;
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.agent-card p {
+  margin: 0;
+  color: var(--ink-muted);
+}
+
+.agent-card-action {
+  margin-top: auto;
+  padding-top: 1.15rem;
+  font-weight: 600;
+  color: var(--accent-deep);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.agent-back {
+  margin: 0 0 1.25rem;
+}
+
+.agent-back a {
+  font-weight: 600;
+  text-underline-offset: 0.18em;
+}
+
+.agent-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 1.5rem;
+  align-items: start;
+  max-width: 1040px;
+}
+
+.agent-copy h1 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+}
+
+.agent-summary {
+  margin: 0 0 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.agent-copy h2 {
+  margin: 1.5rem 0 0.55rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.agent-copy ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.agent-copy li {
+  margin: 0.35rem 0;
+  color: var(--ink-muted);
+}
+
+.agent-site {
+  margin: 1.25rem 0 0;
+}
+
+.agent-site a {
+  font-weight: 600;
+  text-underline-offset: 0.18em;
+}
+
+.placeholder-copy {
+  margin: 0;
+  padding: 0.8rem 0.9rem;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  background: #f7f3ea;
+  color: var(--ink-muted);
+}
+
+.placeholder-copy strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.agent-chat {
+  display: flex;
+  flex-direction: column;
+  min-height: 460px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.agent-chat-banner {
+  padding: 1rem 1rem 0.85rem;
+  background: var(--ink);
+  color: var(--sidebar-text);
+}
+
+.agent-chat-banner h2 {
+  margin: 0 0 0.2rem;
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.agent-chat-banner p {
+  margin: 0;
+  color: var(--sidebar-muted);
+}
+
+.agent-chat-log {
+  flex: 1;
+  min-height: 200px;
+  max-height: 420px;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.agent-chat-log ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.agent-chat-empty {
+  margin: 0;
+  color: var(--ink-muted);
+}
+
+.agent-chat-message {
+  margin-bottom: 0.75rem;
+}
+
+.agent-chat-message p {
+  margin: 0.15rem 0 0;
+}
+
+.agent-chat-role {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.agent-chat-message--user p {
+  color: var(--ink);
+}
+
+.agent-chat-message--status p {
+  color: var(--ink-muted);
+}
+
+.agent-chat-form {
+  padding: 0.85rem 1rem 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.agent-chat-form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.agent-chat-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.agent-chat-form input {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+.agent-chat-form button {
+  min-height: 44px;
+  padding: 0.55rem 1rem;
+  border: 0;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--sidebar-text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.agent-chat-form button:hover:not(:disabled) {
+  background: var(--accent-deep);
+}
+
+.agent-chat-form button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 980px) {
+  .agent-cards,
+  .agent-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .agent-chat {
+    min-height: 0;
+  }
+}
