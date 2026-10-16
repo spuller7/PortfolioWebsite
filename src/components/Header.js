@@ -1,33 +1,36 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../css/header.css';
-import { EmailModal } from './EmailModal';
+
+const navItems = [
+  { hash: '#agents', label: 'Agents' },
+  { hash: '#work', label: 'Work' },
+  { hash: '#experience', label: 'Experience' },
+  { hash: '#skills', label: 'Skills' },
+  { hash: '#education', label: 'Education' },
+  { hash: '#contact', label: 'Contact' },
+];
 
 export class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      emailModalShow: false,
-      menuOpen: false,
-      scrolled: false,
-    };
-    this.handleScroll = this.handleScroll.bind(this);
+    this.state = { menuOpen: false };
     this.toggleMenu = this.toggleMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll, { passive: true });
-    this.handleScroll();
+    document.addEventListener('keydown', this.handleKeyDown);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
+    document.removeEventListener('keydown', this.handleKeyDown);
   }
 
-  handleScroll() {
-    const scrolled = window.pageYOffset > 24 || document.documentElement.scrollTop > 24;
-    if (scrolled !== this.state.scrolled) {
-      this.setState({ scrolled });
+  handleKeyDown(event) {
+    if (event.key === 'Escape' && this.state.menuOpen) {
+      this.closeMenu();
     }
   }
 
@@ -39,67 +42,55 @@ export class Header extends Component {
     this.setState({ menuOpen: false });
   }
 
-  viewEmailModal() {
-    this.setState({ emailModalShow: true, menuOpen: false });
-  }
-
   render() {
-    const emailModalClose = () => this.setState({ emailModalShow: false });
-    const headerClass = [
-      'site-header',
-      this.state.scrolled ? 'is-scrolled' : '',
-      this.state.menuOpen ? 'is-open' : '',
-    ]
+    const headerClass = ['site-header', this.state.menuOpen ? 'is-open' : '']
       .filter(Boolean)
       .join(' ');
 
     return (
       <header className={headerClass}>
-        <div className="container header-inner">
-          <a className="logo" href="#top" onClick={this.closeMenu}>
+        <a className="skip-link" href="#content">
+          Skip to content
+        </a>
+        <div className="header-top">
+          <Link className="logo" to="/" onClick={this.closeMenu}>
             Travis Spuller
-          </a>
-
+          </Link>
           <button
             type="button"
             className="menu-trigger"
-            aria-label="Toggle navigation"
+            aria-label={this.state.menuOpen ? 'Close navigation' : 'Open navigation'}
             aria-expanded={this.state.menuOpen}
+            aria-controls="site-nav"
             onClick={this.toggleMenu}
           >
             <span />
           </button>
-
-          <nav className={`Navigation${this.state.menuOpen ? ' is-visible' : ''}`}>
-            <ul>
-              <li>
-                <a href="#featured" onClick={this.closeMenu}>
-                  Work
-                </a>
-              </li>
-              <li>
-                <a href="#about" onClick={this.closeMenu}>
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#experience" onClick={this.closeMenu}>
-                  Experience
-                </a>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="Button"
-                  onClick={() => this.viewEmailModal()}
-                >
-                  Contact
-                </button>
-              </li>
-            </ul>
-          </nav>
         </div>
-        <EmailModal show={this.state.emailModalShow} onHide={emailModalClose} />
+
+        <nav id="site-nav" className={this.state.menuOpen ? 'is-visible' : ''} aria-label="Primary">
+          <ul>
+            {navItems.map((item) => (
+              <li key={item.hash}>
+                <Link to={{ pathname: '/', hash: item.hash }} onClick={this.closeMenu}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="header-meta">
+          <p>Detroit, Michigan</p>
+          <a
+            href="https://www.linkedin.com/in/travis-spuller"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a href="mailto:travis.spuller@gmail.com">travis.spuller@gmail.com</a>
+        </div>
       </header>
     );
   }

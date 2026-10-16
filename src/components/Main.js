@@ -1,174 +1,170 @@
-import React, { Component } from 'react';
-import { EmailModal } from './EmailModal';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import FeaturedGrid from './FeaturedGrid';
 import ProjectGrid from './ProjectGrid';
+import experience from '../data/experience';
+import skills from '../data/skills';
+import education from '../data/education';
+import agents from '../data/agents';
+import '../css/agent.css';
 
-const companies = [
-  { name: 'TicketSocket', href: 'https://ticketsocket.com/', src: 'images/TicketSocket_RGB_422x292.png' },
-  { name: 'Ann Arbor SPARK', href: 'https://annarborusa.org/', src: 'images/spark-logo.png' },
-  { name: 'Intvo', href: 'https://intvo.com/', src: 'images/intvo-logo.png' },
-  { name: 'Ford', href: 'https://ford.com/', src: 'images/ford-logo.png' },
-  { name: 'Quantum Signal AI', href: 'https://quantumsignalai.com/', src: 'images/qsai-logo.png' },
-  { name: 'Aysling', href: 'https://aysling.com/', src: 'images/aysling-logo.png' },
-];
+const summary =
+  'Full-stack engineer specializing in agentic AI systems and automation pipelines, building LLM applications, RAG-based analytics tools, and agentic workflows with LangChain, LangGraph, and vector stores. Delivers AI features end to end across Python, Node.js, and React, from model orchestration to production interfaces.';
 
-const skills = [
-  'xd', 'photoshop', 'illustrator', 'php', 'graphql', 'c', 'cpp', 'csharp',
-  'css', 'ethereum', 'firebase', 'git', 'sass', 'html', 'ionic', 'java',
-  'javascript', 'json', 'python', 'react',
-];
+export function Main() {
+  return (
+    <>
+      <Header />
+      <main className="site-main" id="content">
+        <section className="hero" id="top">
+          <p className="eyebrow">Detroit, Michigan</p>
+          <h1>Senior AI Engineer</h1>
+          <p className="lede">{summary}</p>
+          <ul className="hero-stack" aria-label="Core tools">
+            <li>LangChain</li>
+            <li>LangGraph</li>
+            <li>Python</li>
+            <li>Node.js</li>
+            <li>React</li>
+          </ul>
+          <div className="hero-actions">
+            <Link className="Button Button--primary" to={{ pathname: '/', hash: '#agents' }}>
+              Agents
+            </Link>
+            <Link className="Button Button--ghost" to={{ pathname: '/', hash: '#experience' }}>
+              Experience
+            </Link>
+          </div>
+        </section>
 
-export class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { emailModalShow: false };
-  }
+        <section className="Section" id="agents" aria-labelledby="agents-heading">
+          <div className="section-intro">
+            <h2 id="agents-heading">Agents</h2>
+          </div>
+          <div className="agent-cards">
+            {agents.map((agent) => (
+              <Link key={agent.id} className="agent-card" to={`/agents/${agent.id}`}>
+                <h3>{agent.name}</h3>
+                {agent.summary ? (
+                  <p>{agent.summary}</p>
+                ) : (
+                  <p className="placeholder-copy">
+                    <strong>Placeholder</strong>
+                    Add a short description.
+                  </p>
+                )}
+                <span className="agent-card-action">Open</span>
+              </Link>
+            ))}
+          </div>
+        </section>
 
-  viewEmailModal() {
-    this.setState({ emailModalShow: true });
-  }
-
-  render() {
-    const emailModalClose = () => this.setState({ emailModalShow: false });
-
-    return (
-      <>
-        <Header />
-        <main className="App" id="top">
-          <section className="hero">
-            <div className="hero-atmosphere" aria-hidden="true" />
-            <div className="container hero-content">
-              <p className="hero-brand">Travis Spuller</p>
-              <h1 className="hero-headline">Full-stack engineer building products that ship.</h1>
-              <p className="hero-lede">
-                Mobile apps, web platforms, and game experiences — with a focus on
-                clean architecture, precise UX, and modern JavaScript.
-              </p>
-              <div className="hero-actions">
-                <a className="Button Button--primary" href="#featured">
-                  View work
+        <section className="Section" id="experience" aria-labelledby="experience-heading">
+          <div className="section-intro">
+            <h2 id="experience-heading">Experience</h2>
+          </div>
+          <ul className="company-logos">
+            {experience.map((role) => (
+              <li key={role.id}>
+                <a href={role.href} target="_blank" rel="noopener noreferrer">
+                  <img src={`${process.env.PUBLIC_URL}/${role.logo}`} alt={role.company} />
                 </a>
-                <button
-                  type="button"
-                  className="Button Button--ghost"
-                  onClick={() => this.viewEmailModal()}
+              </li>
+            ))}
+          </ul>
+          <ol className="role-list">
+            {experience.map((role) => (
+              <li key={role.id}>
+                <article className="role">
+                  <div className="role-meta">
+                    <p className="role-dates">
+                      <time dateTime={role.start}>{role.dates}</time>
+                    </p>
+                    <p className="role-location">{role.location}</p>
+                  </div>
+                  <div className="role-body">
+                    <h3>{role.title}</h3>
+                    <p className="role-company">{role.company}</p>
+                    <ul>
+                      {role.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="Section" id="skills" aria-labelledby="skills-heading">
+          <div className="section-intro">
+            <h2 id="skills-heading">Skills</h2>
+          </div>
+          <div className="skill-groups">
+            {skills.map((group) => (
+              <section key={group.id} className="skill-group" aria-labelledby={`${group.id}-heading`}>
+                <h3 id={`${group.id}-heading`}>{group.label}</h3>
+                <ul>
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </section>
+
+        <section className="Section" id="education" aria-labelledby="education-heading">
+          <div className="section-intro">
+            <h2 id="education-heading">Education</h2>
+          </div>
+          <ul className="education-list">
+            {education.map((item) => (
+              <li key={item.id}>
+                <h3>{item.credential}</h3>
+                <p>{item.school}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="Section" id="work" aria-labelledby="work-heading">
+          <div className="section-intro">
+            <h2 id="work-heading">Work</h2>
+            <p>AI and agentic projects first, then earlier software.</p>
+          </div>
+          <h3 className="work-subhead">AI and agentic</h3>
+          <FeaturedGrid />
+          <h3 className="work-subhead work-subhead--later">Earlier work</h3>
+          <ProjectGrid />
+        </section>
+
+        <section className="Section Section--contact" id="contact" aria-labelledby="contact-heading">
+          <div className="contact-panel">
+            <h2 id="contact-heading">Contact</h2>
+            <p>Detroit, Michigan</p>
+            <ul className="contact-links">
+              <li>
+                <a href="mailto:travis.spuller@gmail.com">travis.spuller@gmail.com</a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/travis-spuller"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Get in touch
-                </button>
-              </div>
-            </div>
-          </section>
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
 
-          <section className="Section Section--featured" id="featured">
-            <div className="container">
-              <div className="section-intro">
-                <h2>Recent projects</h2>
-                <p>Current work across ticketing, marketing, and AI commerce.</p>
-              </div>
-              <FeaturedGrid />
-            </div>
-          </section>
-
-          <section className="Section Section--work" id="work">
-            <div className="container">
-              <div className="section-intro">
-                <h2>Selected work</h2>
-                <p>Apps, games, and design systems across web and mobile.</p>
-              </div>
-              <ProjectGrid />
-            </div>
-          </section>
-
-          <section className="Section Section--about" id="about">
-            <div className="container about-grid">
-              <div className="section-intro">
-                <h2>About</h2>
-                <p>
-                  Full-stack engineer specializing in agentic AI systems and
-                  automation pipelines, with a strong foundation architecting
-                  APIs and scaling infrastructure for reliability. Experienced
-                  building customer-facing platforms with an emphasis on
-                  security, performance, and operational continuity. Comfortable
-                  partnering across engineering teams to onboard products and
-                  ship durable, production-grade systems.
-                </p>
-              </div>
-              <div className="about-columns">
-                <div className="about-block">
-                  <h3>Mobile</h3>
-                  <ul>
-                    <li>Hybrid app development and publishing</li>
-                    <li>Hyper-casual game development</li>
-                    <li>Progressive web apps</li>
-                  </ul>
-                </div>
-                <div className="about-block">
-                  <h3>Web</h3>
-                  <ul>
-                    <li>Front-end and back-end development</li>
-                    <li>API and database architecture</li>
-                    <li>User experience design</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="Section Section--experience" id="experience">
-            <div className="container">
-              <div className="section-intro">
-                <h2>Experience</h2>
-                <p>Teams and tools I’ve worked with along the way.</p>
-              </div>
-
-              <div className="experience-logo">
-                <img
-                  className="UofM-logo"
-                  src="images/University-of-Michigan-Logo.png"
-                  alt="University of Michigan"
-                />
-              </div>
-
-              <ul className="company-grid">
-                {companies.map((company) => (
-                  <li key={company.name}>
-                    <a href={company.href} target="_blank" rel="noopener noreferrer">
-                      <img src={company.src} alt={company.name} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-
-              <ul className="Toolkit">
-                {skills.map((skill) => (
-                  <li key={skill}>
-                    <img src={`images/toolkit/${skill}.png`} alt={skill} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-
-          <section className="Section Section--contact" id="contact">
-            <div className="container contact-panel">
-              <h2>Ready to get started?</h2>
-              <p>Let’s talk about your next product, app, or prototype.</p>
-              <button
-                type="button"
-                className="Button Button--primary"
-                onClick={() => this.viewEmailModal()}
-              >
-                Contact
-              </button>
-            </div>
-          </section>
-
-          <EmailModal show={this.state.emailModalShow} onHide={emailModalClose} />
-          <Footer />
-        </main>
-      </>
-    );
-  }
+        <Footer />
+      </main>
+    </>
+  );
 }

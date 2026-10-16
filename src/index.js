@@ -4,12 +4,38 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+function scrollToId(id, behavior) {
+  const target = document.getElementById(id);
+  if (!target) return;
+  const root = document.documentElement;
+  const previous = root.style.scrollBehavior;
+  if (behavior === 'auto') root.style.scrollBehavior = 'auto';
+  target.scrollIntoView({ behavior, block: 'start' });
+  if (behavior === 'auto') root.style.scrollBehavior = previous;
+}
+
+function scrollBehavior() {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  return reduce ? 'auto' : 'smooth';
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+window.addEventListener('hashchange', () => {
+  const id = window.location.hash.slice(1);
+  if (id) scrollToId(id, scrollBehavior());
+});
+
+const initialId = window.location.hash.slice(1);
+if (initialId) {
+  scrollToId(initialId, 'auto');
+  window.addEventListener('load', () => scrollToId(initialId, 'auto'));
+}
 
 document.addEventListener('click', (event) => {
   const anchor = event.target.closest('a[href^="#"]');
@@ -22,9 +48,7 @@ document.addEventListener('click', (event) => {
   if (!target) return;
 
   event.preventDefault();
-  const headerOffset = 80;
-  const top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-  window.scrollTo({ top, behavior: 'smooth' });
+  scrollToId(id, scrollBehavior());
   window.history.pushState(null, '', `#${id}`);
 });
 

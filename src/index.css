@@ -1,10 +1,8 @@
 body {
   margin: 0;
-  font-family: 'Figtree', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
 }
