@@ -65,6 +65,15 @@ export function Main() {
           <div className="section-intro">
             <h2 id="experience-heading">Experience</h2>
           </div>
+          <ul className="company-logos">
+            {experience.map((role) => (
+              <li key={role.id}>
+                <a href={role.href} target="_blank" rel="noopener noreferrer">
+                  <img src={`${process.env.PUBLIC_URL}/${role.logo}`} alt={role.company} />
+                </a>
+              </li>
+            ))}
+          </ul>
           <ol className="role-list">
             {experience.map((role) => (
               <li key={role.id}>
